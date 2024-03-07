@@ -1,0 +1,41 @@
+class Student {
+    String fullName;
+    double semPercentage;
+    String collegeName;
+    int collegeCode;
+
+    // default constructor
+    Student() {
+        collegeName = "MVGRCE";
+        collegeCode = 33;
+    }
+
+    // parameterized constructor
+    Student(Student obj, String fullName, double semPercentage) {
+        obj.fullName = fullName;
+        obj.semPercentage = semPercentage;
+    }
+
+    void display() {
+        System.out.println("fullName : " + fullName);
+        System.out.println("semPercentage : " + semPercentage);
+        System.out.println("collegeName : " + collegeName);
+        System.out.println("collegeCode : " + collegeCode);
+    }
+
+    public void finalize() {
+        System.out.println("DEAD");
+    }
+}
+
+public class JavaConstructor {
+    public static void main(String[] args) {
+        Student student1 = new Student();
+        Student tempStudent = new Student(student1, "varshini", 89);
+        student1.display();
+
+        student1 = null;
+        tempStudent = null;
+        System.gc();
+    }
+}
