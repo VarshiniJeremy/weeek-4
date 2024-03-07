@@ -1,0 +1,37 @@
+class Student{
+    String fullName;
+    int rollNum;
+    double semPercentage;
+    String collegeName;
+    int collegeCode;
+    Student(String fullName,int rollNum,double semPercentage,String collegeName,int collegeCode){
+        this.fullName = fullName;
+        this.rollNum= rollNum;
+        this.semPercentage = semPercentage;
+        this.collegeName= collegeName;
+        this.collegeCode = collegeCode;
+    }
+
+    void display(){
+        System.out.println("fullName : " + fullName);
+        System.out.println("rollNum : " + rollNum);
+        System.out.println("semPercentage : " + semPercentage);
+        System.out.println("collegeName : " + collegeName);
+        System.out.println("collegeCode : " + collegeCode);
+    } 
+
+    public void finalize(){
+       System.out.println("DEAD");
+    }
+}
+
+public class GarbageCollector {
+    public static void main(String[] args) {
+        Student student1 = new Student("Arjun",43,98,"MVGRCE",33);
+        student1.display();
+
+        student1 = null;
+        System.gc();
+    }
+    
+}
